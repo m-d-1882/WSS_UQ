@@ -23,6 +23,8 @@ Knowing this we can now bring together all the inputs:
 We have imposed a cut off of 54 days after the R number has been set. More specifically we are looking at 01/06/22 - 25/07/22. So to be clear: one model run will take 18 inputs and its output will be a timeseries of 55 days (days 0-54).
 
 ### Principal Component Analysis
-Gaussian process emulation 
+Gaussian process emulation is designed to only emulate one output therefore for p inputs, p emulators would be built. For a timeseries of 54 days this would mean building 54 emulators which is inefficient for two reasons: 1) the compuational power it would take to build these emulators would involve inverting 54 180x180 matrices could be better spent elsewhere and 2) the outputs are not independent from each other so one would need to propose how the outputs interact with each other which introduce further uncertainty. An alternative is to use Principal Component Analysis (PCA).
+
+
 
 ### Emulation and Prediction
