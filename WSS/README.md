@@ -10,6 +10,7 @@ The WSS model is expensive to run (around 5 minutes per model run) so to get a r
 ## Framework for UQ with WSS model
 ### Inputs
 This model can be split into two parts: the first being using the case data to predict the R number and the second part being using those R numbers to predict future case, hospitalisations and deaths. As the first part can be represented by an R number then by treating this as a variable we can span all possible case data.
+
 Knowing this we can now bring together all the inputs:
 - this model is compartmental with those being: 1) Mild; 2) ILI (influenza-like illness); 3) SARI (severe acute respiratory illness); 4) Critial; 5) Death; 6) Recovery and 7) Critical Recovery. There are 8 model parameters which is the logmean number of days it takes someone to go between the following compartments: 1->7, 2->7, 2->3, 3->7, 3->5, 3->4, 4->7, 4->5 and 7->6 with 4->7 and 4->5 having the same logmean. 
 - 5 coefficients that dictate the severity and transmissability of the alpha, delta and omicron variants (except tranmissability of omicron)
@@ -19,7 +20,9 @@ Knowing this we can now bring together all the inputs:
 - R_no from first part
 
 ### Outputs
+We have imposed a cut off of 54 days after the R number has been set. More specifically we are looking at 01/06/22 - 25/07/22. 
 
 ### Principal Component Analysis
+
 
 ### Emulation and Prediction
