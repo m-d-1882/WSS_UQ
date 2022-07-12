@@ -8,8 +8,6 @@ The WSS model takes current real-world case data and (among other things) predic
 The WSS model is expensive to run (around 5 minutes per model run) so to get a representation across the entire input space would take an unfeasible amount of time. Therefore an alternative is to create a statistical approximation to the model (in this case a Gaussian process emulator) which is trained by a small number of model runs (usually 10p where p is no. of input dims.) and can quantify the uncertainty in the areas of input space which haven't been trained.
 
 ## Framework for UQ with WSS model
-### Framework
-
 ### Inputs
 This model can be split into two parts: the first being using the case data to predict the R number and the second part being using those R numbers to predict future case, hospitalisations and deaths. As the first part can be represented by an R number then by treating this as a variable we can span all possible case data.
 Knowing this we can now bring together all the inputs:
@@ -20,4 +18,8 @@ Knowing this we can now bring together all the inputs:
 - 2 beta parameters that define case-fatality-ratio (CFR) for each age-group.
 - R_no from first part
 
-### Outputs and Emulation
+### Outputs
+
+### Principal Component Analysis
+
+### Emulation and Prediction
