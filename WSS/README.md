@@ -20,9 +20,9 @@ Knowing this we can now bring together all the inputs:
 - R_no from first part
 
 ### Outputs
-We have imposed a cut off of 54 days after the R number has been set. More specifically we are looking at 01/06/22 - 25/07/22. 
+We have imposed a cut off of 54 days after the R number has been set. More specifically we are looking at 01/06/22 - 25/07/22. So to be clear: one model run will take 18 inputs and its output will be a timeseries of 55 days (days 0-54).
 
 ### Principal Component Analysis
-
+Gaussian process emulation 
 
 ### Emulation and Prediction
