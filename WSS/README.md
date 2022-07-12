@@ -25,6 +25,6 @@ We have imposed a cut off of 54 days after the R number has been set. More speci
 ### Principal Component Analysis
 Gaussian process emulation is designed to only emulate one output therefore for p inputs, p emulators would be built. For a timeseries of 54 days this would mean building 54 emulators which is inefficient for two reasons: 1) the compuational power it would take to build these emulators would involve inverting 54 180x180 matrices could be better spent elsewhere and 2) the outputs are not independent from each other so one would need to propose how the outputs interact with each other which introduce further uncertainty. An alternative is to use Principal Component Analysis (PCA).
 
-
+We are able to represent the output timeseries using a number of orthogonal basis functions and weights. To determine these, a large amount of timeseries outputs (from the training data) are collated and from there a function is constructed which explains the most amount of variance in the output. This is repeat until the desired amount of variance has been explained.. This drastically reduces the number of outputs to deal with as the number of weights << original length of output using this process. In summary: after this process we have m basis functions (same length as timeseries) with m weights representing each timeseries output. Note that when representing another timeseries output; the weights change but the basis functions stay the same.
 
 ### Emulation and Prediction
