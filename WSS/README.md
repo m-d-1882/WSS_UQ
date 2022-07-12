@@ -28,4 +28,11 @@ Gaussian process emulation is designed to only emulate one output therefore for 
 We are able to represent the output timeseries using a number of orthogonal basis functions and weights. To determine these, a large amount of timeseries outputs (from the training data) are collated and from there a function is constructed which explains the most amount of variance in the output. This is repeat until the desired amount of variance has been explained.. This drastically reduces the number of outputs to deal with as the number of weights << original length of output using this process. In summary: after this process we have m basis functions (same length as timeseries) with m weights representing each timeseries output. Note that when representing another timeseries output; the weights change but the basis functions stay the same.
 
 ### Emulation and Prediction
-After the PCA we now have a small number of outputs with which we can build emulators for. 
+After conducting the PCA we now have a far smaller number of outputs with which we can build emulators for - these outputs now being the weights for the basis functions. We fit an emulator to each of these weights (which are now independent from each other as their respective basis functions are orthogonal) which constructs a distribution of timeseries' with a mean and confidence intervals.
+
+## Implementing this framework
+1. Download the model from https://github.com/gjackland/WSS
+2. In the same folder as the 'covid_trimmed.R', 'Regional.R' etc files, add in the following files: 'getParams_ensemble.R', 'covid_trimmed_oneregion.R', 'Regional_oneregion.R', 'CompartmentFunction_ensemble.R', 'Workflow_ensemble.R'. These adapt the code slightly to allow for running ensembles.
+3. Run the ensemble using 'model_runs.R'. This does model runs for design and validation purposes. Parameter ranges were agreed with the model developer.
+4. Conduct PCA by running 'PCA.R'. This requires some interaction (lines 157, 161, 167 and 171) to tailor PCA by removing some outlying design points.
+5. Emulate the weights of the PCA and produce probability distribution of timeseries with mean, +-2SD and individual draws using the file 'emulation_pcs.R'. One can compare the approximation with a validation timeseries using line 130.
