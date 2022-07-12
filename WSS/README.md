@@ -28,3 +28,4 @@ Gaussian process emulation is designed to only emulate one output therefore for 
 We are able to represent the output timeseries using a number of orthogonal basis functions and weights. To determine these, a large amount of timeseries outputs (from the training data) are collated and from there a function is constructed which explains the most amount of variance in the output. This is repeat until the desired amount of variance has been explained.. This drastically reduces the number of outputs to deal with as the number of weights << original length of output using this process. In summary: after this process we have m basis functions (same length as timeseries) with m weights representing each timeseries output. Note that when representing another timeseries output; the weights change but the basis functions stay the same.
 
 ### Emulation and Prediction
+After the PCA we now have a small number of outputs with which we can build emulators for. 
