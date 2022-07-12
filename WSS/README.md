@@ -32,7 +32,7 @@ After conducting the PCA we now have a far smaller number of outputs with which 
 
 ## Implementing this framework
 1. Download the model from https://github.com/gjackland/WSS
-2. In the same folder as the 'covid_trimmed.R', 'Regional.R' etc files, add in the following files: 'getParams_ensemble.R', 'covid_trimmed_oneregion.R', 'Regional_oneregion.R', 'CompartmentFunction_ensemble.R', 'Workflow_ensemble.R'. These adapt the code slightly to allow for running ensembles.
+2. In the same folder as the 'covid_trimmed.R', 'Regional.R' etc files, add in the following files: 'getParams_ensemble.R', 'covid_trimmed_oneregion.R', 'Regional_oneregion.R', 'CompartmentFunction_ensemble.R', 'Workflow_ensemble.R' and the folder 'csv_files'. These adapt the code slightly to allow for running ensembles.
 3. Run the ensemble using 'model_runs.R'. This does model runs for design and validation purposes. Parameter ranges were agreed with the model developer.
 4. Conduct PCA by running 'PCA.R'. This requires some interaction (lines 157, 161, 167 and 171) to tailor PCA by removing some outlying design points.
 5. We can emulate the weights of the PCA and produce probability distribution of timeseries with mean, +-2SD and individual draws using the file 'emulation_pcs.R'. One can compare the approximation with a validation timeseries using line 130.
