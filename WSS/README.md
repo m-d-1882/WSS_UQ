@@ -20,7 +20,7 @@ Knowing this we can now bring together all the inputs:
 - R_no from first part
 
 ### Outputs
-We have imposed a cut off of 54 days after the R number has been set. More specifically we are looking at 01/06/22 - 25/07/22. So to be clear: one model run will take 18 inputs and its output will be a timeseries of 55 days (days 0-54).
+We have imposed a cut off of 54 days after the R number has been set. More specifically we are looking at 01/06/22 - 25/07/22 (note that these dates can be changed by modifying the 'startdate' and 'enddate' parameters in 'getParams_ensemble.R', as it stands the enddate is 01/06/22 as its the last day of data, just set startdate to be an arbitrarily long time before that). So to be clear: one model run will take 18 inputs and its output will be a timeseries of 55 days (days 0-54).
 
 ### Principal Component Analysis
 Gaussian process emulation is designed to only emulate one output therefore for p outputs, p emulators would be built. For a timeseries of 55 days this would mean building 55 emulators which is inefficient for two reasons: 1) the compuational power it would take to build these emulators would involve inverting 55 10px10p matrices could be better spent elsewhere and 2) the outputs are not independent from each other so one would need to propose how the outputs interact with each other which introduce further uncertainty. An alternative is to use Principal Component Analysis (PCA).
